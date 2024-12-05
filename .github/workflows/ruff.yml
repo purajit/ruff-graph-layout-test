@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: astral-sh/ruff-action@v1
+      - uses: actions/checkout@v4
       - run: |
           cd flat_layout
           ruff analyze graph .
