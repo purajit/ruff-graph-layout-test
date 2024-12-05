@@ -11,13 +11,16 @@ jobs:
       - uses: astral-sh/ruff-action@v2
       - uses: actions/checkout@v4
       - run: |
+          set -x
           cd flat_layout
           ruff analyze graph .
       - run: |
+          set -x
           cd semi_flat_src
           ruff analyze graph .
           ruff analyze graph src
           PYTHONPATH=src ruff analyze graph .
       - run: |
+          set -x
           cd src_layout
           ruff analyze graph .
