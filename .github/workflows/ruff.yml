@@ -1,0 +1,22 @@
+name: ruff
+
+on:
+  pull_request:
+  push:
+
+jobs:
+  ruff:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: astral-sh/ruff-action@v1
+      - run: |
+          cd flat_layout
+          ruff analyze graph .
+      - run: |
+          cd semi_flat_src
+          ruff analyze graph .
+          ruff analyze graph src
+          PYTHONPATH=src ruff analyze graph .
+      - run: |
+          cd src_layout
+          ruff analyze graph .
